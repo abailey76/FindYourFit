@@ -1,11 +1,11 @@
-﻿using System;
-using FindYourFit.Data;
+using System;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using FindYourFit.Data;
 
 [assembly: HostingStartup(typeof(FindYourFit.Areas.Identity.IdentityHostingStartup))]
 namespace FindYourFit.Areas.Identity
@@ -15,6 +15,12 @@ namespace FindYourFit.Areas.Identity
         public void Configure(IWebHostBuilder builder)
         {
             builder.ConfigureServices((context, services) => {
+                services.AddDbContext<ApplicationDbContext>(options =>
+                    options.UseMySql(
+                        context.Configuration.GetConnectionString("DefaultConnection")));
+
+                services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                    .AddEntityFrameworkStores<ApplicationDbContext>();
             });
         }
     }
