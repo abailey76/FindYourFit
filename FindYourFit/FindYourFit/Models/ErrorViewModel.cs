@@ -1,5 +1,3 @@
-using System;
-
 namespace FindYourFit.Models
 {
     public class ErrorViewModel
