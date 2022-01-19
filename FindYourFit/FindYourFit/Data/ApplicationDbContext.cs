@@ -11,7 +11,7 @@ namespace FindYourFit.Data
         public DbSet<Event> Events { get; set; }
         public DbSet<EventCategory> Categories { get; set; }
         public DbSet<Tag> Tags { get; set; }
-        public DbSet<EventTag> EventTags { get; set; }
+        public DbSet<EventTag> ResourceTags { get; set; }
         public DbSet<AppRole> AppRoles { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
 

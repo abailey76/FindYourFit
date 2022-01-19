@@ -88,7 +88,7 @@ namespace coding_events_practice.Controllers
                .Include(e => e.Category)
                .Single(e => e.Id == id);
 
-            List<EventTag> eventTags = context.EventTags
+            List<EventTag> eventTags = context.ResourceTags
                 .Where(et => et.EventId == id)
                 .Include(et => et.Tag)
                 .ToList();
