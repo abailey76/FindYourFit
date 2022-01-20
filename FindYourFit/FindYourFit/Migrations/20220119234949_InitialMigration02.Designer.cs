@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FindYourFit.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220118022019_InitialMigration02")]
+    [Migration("20220119234949_InitialMigration02")]
     partial class InitialMigration02
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -71,6 +71,45 @@ namespace FindYourFit.Migrations
                     b.HasIndex("TagId");
 
                     b.ToTable("EventTags");
+                });
+
+            modelBuilder.Entity("FindYourFit.Models.FitnessResource", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ContactEmail")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("FitnessResource");
+                });
+
+            modelBuilder.Entity("FindYourFit.Models.FitnessResourceCategory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FitnessResourceCategories");
                 });
 
             modelBuilder.Entity("FindYourFit.Models.Tag", b =>
@@ -338,6 +377,15 @@ namespace FindYourFit.Migrations
                     b.HasOne("FindYourFit.Models.Tag", "Tag")
                         .WithMany()
                         .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("FindYourFit.Models.FitnessResource", b =>
+                {
+                    b.HasOne("FindYourFit.Models.FitnessResourceCategory", "Category")
+                        .WithMany("fitnessresources")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

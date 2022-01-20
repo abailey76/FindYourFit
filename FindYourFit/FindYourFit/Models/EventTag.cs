@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace FindYourFit.Models
 {
     public class EventTag
@@ -8,7 +9,7 @@ namespace FindYourFit.Models
 
         public int TagId { get; set; }
         public Tag Tag { get; set; }
-
+        
         public EventTag()
         {
         }

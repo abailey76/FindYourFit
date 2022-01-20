@@ -11,9 +11,11 @@ namespace FindYourFit.Data
         public DbSet<Event> Events { get; set; }
         public DbSet<EventCategory> Categories { get; set; }
         public DbSet<Tag> Tags { get; set; }
-        public DbSet<EventTag> ResourceTags { get; set; }
+        public DbSet<EventTag> EventTags { get; set; }
         public DbSet<AppRole> AppRoles { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
+        public DbSet<FitnessResource> FitnessResources { get; set;}
+        public DbSet<FitnessResourceCategory> FitnessResourceCategories { get; set;}
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FindYourFit.Migrations
 {
-    public partial class InitialMigration01 : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -60,6 +60,19 @@ namespace FindYourFit.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Categories", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "FitnessResourceCategories",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FitnessResourceCategories", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -204,6 +217,28 @@ namespace FindYourFit.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "FitnessResource",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(nullable: true),
+                    Description = table.Column<string>(nullable: true),
+                    Location = table.Column<string>(nullable: true),
+                    CategoryId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FitnessResource", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_FitnessResource_FitnessResourceCategories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "FitnessResourceCategories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "EventTags",
                 columns: table => new
                 {
@@ -273,6 +308,11 @@ namespace FindYourFit.Migrations
                 name: "IX_EventTags_TagId",
                 table: "EventTags",
                 column: "TagId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FitnessResource_CategoryId",
+                table: "FitnessResource",
+                column: "CategoryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -296,6 +336,9 @@ namespace FindYourFit.Migrations
                 name: "EventTags");
 
             migrationBuilder.DropTable(
+                name: "FitnessResource");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
@@ -306,6 +349,9 @@ namespace FindYourFit.Migrations
 
             migrationBuilder.DropTable(
                 name: "Tags");
+
+            migrationBuilder.DropTable(
+                name: "FitnessResourceCategories");
 
             migrationBuilder.DropTable(
                 name: "Categories");

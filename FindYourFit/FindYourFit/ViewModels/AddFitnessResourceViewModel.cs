@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace FindYourFit.ViewModels
 {
-    public class AddEventViewModel
+    public class AddFitnessResourceViewModel
     {
         [Required(ErrorMessage = "Name is required.")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Name must be between 3 and 50 characters")]
@@ -23,7 +23,7 @@ namespace FindYourFit.ViewModels
 
         public List<SelectListItem> Categories { get; set; }
 
-        public AddEventViewModel(List<EventCategory> categories) 
+        public AddFitnessResourceViewModel(List<FitnessResourceCategory> categories)
         {
             Categories = new List<SelectListItem>();
 
@@ -39,7 +39,7 @@ namespace FindYourFit.ViewModels
             }
         }
 
-        public AddEventViewModel() { }
+        public AddFitnessResourceViewModel() { }
 
     }
 }

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace coding_events_practice.Controllers
+namespace FindYourFit.Controllers
 {
     [Authorize]
     public class EventsController : Controller
@@ -91,7 +91,7 @@ namespace coding_events_practice.Controllers
                .Include(e => e.Category)
                .Single(e => e.Id == id);
 
-            List<EventTag> eventTags = context.ResourceTags
+            List<EventTag> eventTags = context.EventTags
                 .Where(et => et.EventId == id)
                 .Include(et => et.Tag)
                 .ToList();

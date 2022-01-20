@@ -63,7 +63,7 @@ namespace FindYourFit.Controllers
                 int eventId = viewModel.EventId;
                 int tagId = viewModel.TagId;
 
-                List<EventTag> existingItems = context.ResourceTags
+                List<EventTag> existingItems = context.EventTags
                     .Where(et => et.EventId == eventId)
                     .Where(et => et.TagId == tagId)
                     .ToList();
@@ -77,7 +77,7 @@ namespace FindYourFit.Controllers
                         TagId = tagId
                     };
 
-                    context.ResourceTags.Add(eventTag);
+                    context.EventTags.Add(eventTag);
                     context.SaveChanges();
                 }
 
@@ -89,7 +89,7 @@ namespace FindYourFit.Controllers
 
         public IActionResult Detail(int id)
         {
-            List<EventTag> eventTags = context.ResourceTags
+            List<EventTag> eventTags = context.EventTags
                 .Where(et => et.TagId == id)
                 .Include(et => et.Event)
                 .Include(et => et.Tag)
