@@ -16,7 +16,7 @@ namespace FindYourFit.Models
 
         public int Id { get; set; }
 
-            public Event()
+        public Event()
         {
         }
 
@@ -27,7 +27,7 @@ namespace FindYourFit.Models
             ContactEmail = contactEmail;
         }
 
-        
+
 
         public override string ToString()
         {

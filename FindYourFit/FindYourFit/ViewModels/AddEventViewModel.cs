@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using FindYourFit.Models;
+﻿using FindYourFit.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace FindYourFit.ViewModels
 {
@@ -23,7 +23,7 @@ namespace FindYourFit.ViewModels
 
         public List<SelectListItem> Categories { get; set; }
 
-        public AddEventViewModel(List<EventCategory> categories) 
+        public AddEventViewModel(List<EventCategory> categories)
         {
             Categories = new List<SelectListItem>();
 

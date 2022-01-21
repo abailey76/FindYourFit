@@ -27,7 +27,7 @@ namespace FindYourFit.Models
             Description = description;
         }
 
-        
+
 
         public override string ToString()
         {

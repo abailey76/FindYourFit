@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using FindYourFit.Models;
+﻿using FindYourFit.Models;
+using System.Collections.Generic;
 
 namespace FindYourFit.ViewModels
 {

@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using FindYourFit.Models;
+﻿using FindYourFit.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
 
 namespace FindYourFit.ViewModels
 {
@@ -20,7 +20,8 @@ namespace FindYourFit.ViewModels
 
             foreach (var tag in possibleTags)
             {
-                Tags.Add(new SelectListItem {
+                Tags.Add(new SelectListItem
+                {
                     Value = tag.Id.ToString(),
                     Text = tag.Name
                 });

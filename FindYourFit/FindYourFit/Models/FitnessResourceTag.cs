@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace FindYourFit.Models
+﻿namespace FindYourFit.Models
 {
     public class FitnessResourceTag
     {

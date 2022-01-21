@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using FindYourFit.Models;
+﻿using FindYourFit.Models;
+using System.Collections.Generic;
 
 namespace FindYourFit.ViewModels
 {
@@ -17,7 +17,7 @@ namespace FindYourFit.ViewModels
             FitnessResourceId = theFitnessResource.Id;
             Name = theFitnessResource.Name;
             Description = theFitnessResource.Description;
-            
+
             CategoryName = theFitnessResource.Category.Name;
 
             TagText = "";
