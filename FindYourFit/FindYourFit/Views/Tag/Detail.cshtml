@@ -1,12 +1,12 @@
 ﻿@model List<FindYourFit.Models.EventTag>
-
+<body style="background-color:darkslategrey"></body>
 @if (Model.Count == 0)
 {
-    <h1>No elements with the given tag</h1>
+    <h1 class="text-light">No elements with the given tag</h1>
 }
 else
 {
-    <h1>Events Tagged: @Model[0].Tag.Name</h1>
+    <h1 class="text-light">Events Tagged: @Model[0].Tag.Name</h1>
 
     <ul>
         @foreach (var evtTag in Model)

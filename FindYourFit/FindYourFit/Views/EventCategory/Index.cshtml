@@ -1,14 +1,14 @@
 ﻿@model List<FindYourFit.Models.EventCategory>
 
-<h1>All Event Categories</h1>
-
+<h1 class="text-light">All Event Categories</h1>
+<body style="background-color:darkslategrey"></body>
 @if (Model.Count == 0)
 {
-    <p>No Event Categories yet!</p>
+    <p class="text-light">No scheduled events.</p>
 }
 else
 {
-    <table class="table">
+    <table class="table; text-light">
         <tr>
             <th>Id
             <th>Category Name</th>

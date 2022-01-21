@@ -1,9 +1,9 @@
-﻿<h1>Delete Tag</h1>
-
+﻿<h1 class="text-light">Delete Tag</h1>
+<body style="background-color:darkslategrey"></body>
 <form method="post">
     @foreach (var evt in ViewBag.events)
     {
-        <div class="form-group">
+        <div class="form-group; text-light">
             <label>
                 <span>@evt.Name</span>
                 <input type="checkbox" name="FitnessResourceIds" value="@evt.Id" class="form-control">

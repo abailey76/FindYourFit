@@ -1,23 +1,23 @@
 ﻿@model FindYourFit.ViewModels.AddEventViewModel;
-
-<h1>Add Event</h1>
+<body style="background-color:darkslategrey"></body>
+<h1 class="text-light">Add Event</h1>
 
 <form asp-controller="Events" asp-action="Add" method="post">
-    <div class="form-group">
+    <div class="form-group; text-light">
         <label asp-for="Name"></label>
         <input asp-for="Name" />
         <span asp-validation-for="Name"></span>
     </div>
-    <div class="form-group">
+    <div class="form-group; text-light">
         <label asp-for="Description"></label>
         <input asp-for="Description" />
         <span asp-validation-for="Description"></span>
     </div>
-    <div class="form-group">
+    <div class="form-group; text-light">
         <label asp-for="ContactEmail">Contact Email</label>
         <input asp-for="ContactEmail" />
     </div>
-    <div class="form-group">
+    <div class="form-group; text-light">
         <label asp-for="CategoryId">Category</label>
         <select asp-for="CategoryId" asp-items="Model.Categories"></select>
     </div>

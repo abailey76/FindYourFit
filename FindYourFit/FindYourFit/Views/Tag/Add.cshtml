@@ -1,9 +1,9 @@
 ﻿@model FindYourFit.Models.Tag
-
-<h1>Add New Tag</h1>
+<body style="background-color:darkslategrey"></body>
+<h1 class="text-light">Add New Tag</h1>
 
 <form asp-controller="Tag" asp-action="Add" method="post">
-    <div class="form-group">
+    <div class="form-group; text-light">
         <label asp-for="Name"></label>
         <input asp-for="Name" />
         <span asp-validation-for="Name"></span>
