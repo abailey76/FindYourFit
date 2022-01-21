@@ -23,7 +23,7 @@ namespace FindYourFit.ViewModels
 
         public List<SelectListItem> Categories { get; set; }
 
-        public AddFitnessResourceViewModel(List<FitnessResourceCategory> categories)
+        public AddFitnessResourceViewModel(List<EventCategory> categories)
         {
             Categories = new List<SelectListItem>();
 

@@ -27,7 +27,7 @@ namespace FindYourFit.Controllers
         public IActionResult Index()
         {
             List<FitnessResource> fitnessResources = context.FitnessResources
-                .Include(et => et.Category)
+                .Include(e => e.Category)
                 .ToList();
 
             return View(fitnessResources);
@@ -35,8 +35,8 @@ namespace FindYourFit.Controllers
 
         public IActionResult Add()
         {
-            List<FitnessResourceCategory> categories = context.FitnessResourceCategories.ToList();
-            AddFitnessResourceViewModel addFitnessResourceViewModel = new AddFitnessResourceViewModel(categories);
+            List<EventCategory> eventcategories = context.EventCategories.ToList();
+            AddFitnessResourceViewModel addFitnessResourceViewModel = new AddFitnessResourceViewModel(eventcategories);
 
             return View(addFitnessResourceViewModel);
         }
@@ -46,12 +46,12 @@ namespace FindYourFit.Controllers
         {
             if (ModelState.IsValid)
             {
-                FitnessResourceCategory theCategory = context.FitnessResourceCategories.Find(addFitnessResourceViewModel.CategoryId);
+                EventCategory theCategory = context.Categories.Find(addFitnessResourceViewModel.CategoryId);
                 FitnessResource newFitnessResource = new FitnessResource
                 {
                     Name = addFitnessResourceViewModel.Name,
                     Description = addFitnessResourceViewModel.Description,
-                    ContactEmail = addFitnessResourceViewModel.ContactEmail,
+                    //ContactEmail = addFitnessResourceViewModel.ContactEmail,
                     Category = theCategory
                 };
 

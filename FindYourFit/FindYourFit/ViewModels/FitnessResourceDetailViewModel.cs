@@ -17,7 +17,7 @@ namespace FindYourFit.ViewModels
             FitnessResourceId = theFitnessResource.Id;
             Name = theFitnessResource.Name;
             Description = theFitnessResource.Description;
-            ContactEmail = theFitnessResource.ContactEmail;
+            
             CategoryName = theFitnessResource.Category.Name;
 
             TagText = "";

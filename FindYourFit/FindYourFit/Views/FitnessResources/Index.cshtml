@@ -27,9 +27,9 @@ else
             <th>
                 Description
             </th>
-            <th>
+            @*<th>
                 Contact Email
-            </th>
+            </th>*@
             <th>
                 Category
             </th>
@@ -40,7 +40,7 @@ else
                 <td>@evt.Id</td>
                 <td><a asp-controller="FitnessResources" asp-action="Detail" asp-route-id="@evt.Id">@evt.Name</a></td>
                 <td>@evt.Description</td>
-                <td>@evt.ContactEmail</td>
+                @*<td>@evt.ContactEmail</td>*@
                 <td>@evt.Category.Name</td>
             </tr>
         }

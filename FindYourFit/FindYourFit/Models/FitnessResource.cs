@@ -10,22 +10,24 @@ namespace FindYourFit.Models
 
         public string ContactEmail { get; set; }
 
-        public FitnessResourceCategory Category { get; set; }
+        public EventCategory Category { get; set; }
 
         public int CategoryId { get; set; }
 
         public int Id { get; set; }
-
-        public FitnessResource(string name, string description, string contactEmail)
-        {
-            Name = name;
-            Description = description;
-            ContactEmail = contactEmail;
-        }
+        public EventCategory EventCategory { get; internal set; }
 
         public FitnessResource()
         {
         }
+
+        public FitnessResource(string name, string description)
+        {
+            Name = name;
+            Description = description;
+        }
+
+        
 
         public override string ToString()
         {

@@ -50,7 +50,7 @@ namespace FindYourFit.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Categories",
+                name: "EventCategory",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -59,20 +59,7 @@ namespace FindYourFit.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Categories", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "FitnessResourceCategories",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_FitnessResourceCategories", x => x.Id);
+                    table.PrimaryKey("PK_EventCategory", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -209,33 +196,40 @@ namespace FindYourFit.Migrations
                 {
                     table.PrimaryKey("PK_Events", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Events_Categories_CategoryId",
+                        name: "FK_Events_EventCategory_CategoryId",
                         column: x => x.CategoryId,
-                        principalTable: "Categories",
+                        principalTable: "EventCategory",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "FitnessResource",
+                name: "FitnessResources",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true),
                     Description = table.Column<string>(nullable: true),
-                    Location = table.Column<string>(nullable: true),
-                    CategoryId = table.Column<int>(nullable: false)
+                    ContactEmail = table.Column<string>(nullable: true),
+                    CategoryId = table.Column<int>(nullable: false),
+                    EventCategoryId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FitnessResource", x => x.Id);
+                    table.PrimaryKey("PK_FitnessResources", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_FitnessResource_FitnessResourceCategories_CategoryId",
+                        name: "FK_FitnessResources_EventCategory_CategoryId",
                         column: x => x.CategoryId,
-                        principalTable: "FitnessResourceCategories",
+                        principalTable: "EventCategory",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_FitnessResources_EventCategory_EventCategoryId",
+                        column: x => x.EventCategoryId,
+                        principalTable: "EventCategory",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
@@ -310,9 +304,14 @@ namespace FindYourFit.Migrations
                 column: "TagId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_FitnessResource_CategoryId",
-                table: "FitnessResource",
+                name: "IX_FitnessResources_CategoryId",
+                table: "FitnessResources",
                 column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FitnessResources_EventCategoryId",
+                table: "FitnessResources",
+                column: "EventCategoryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -336,7 +335,7 @@ namespace FindYourFit.Migrations
                 name: "EventTags");
 
             migrationBuilder.DropTable(
-                name: "FitnessResource");
+                name: "FitnessResources");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -351,10 +350,7 @@ namespace FindYourFit.Migrations
                 name: "Tags");
 
             migrationBuilder.DropTable(
-                name: "FitnessResourceCategories");
-
-            migrationBuilder.DropTable(
-                name: "Categories");
+                name: "EventCategory");
         }
     }
 }

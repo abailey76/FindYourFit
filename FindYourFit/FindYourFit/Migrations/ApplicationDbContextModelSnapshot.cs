@@ -53,7 +53,7 @@ namespace FindYourFit.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("EventCategory");
                 });
 
             modelBuilder.Entity("FindYourFit.Models.EventTag", b =>
@@ -86,20 +86,7 @@ namespace FindYourFit.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.ToTable("FitnessResources");
-                });
-
-            modelBuilder.Entity("FindYourFit.Models.FitnessResourceCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int?>("EventCategoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -107,7 +94,11 @@ namespace FindYourFit.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("FitnessResourceCategories");
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("EventCategoryId");
+
+                    b.ToTable("FitnessResources");
                 });
 
             modelBuilder.Entity("FindYourFit.Models.Tag", b =>
@@ -381,11 +372,15 @@ namespace FindYourFit.Migrations
 
             modelBuilder.Entity("FindYourFit.Models.FitnessResource", b =>
                 {
-                    b.HasOne("FindYourFit.Models.FitnessResourceCategory", "Category")
-                        .WithMany("fitnessresources")
+                    b.HasOne("FindYourFit.Models.EventCategory", "Category")
+                        .WithMany()
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("FindYourFit.Models.EventCategory", "EventCategory")
+                        .WithMany()
+                        .HasForeignKey("EventCategoryId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
