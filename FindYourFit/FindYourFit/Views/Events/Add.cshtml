@@ -8,18 +8,22 @@
         <input asp-for="Name" />
         <span asp-validation-for="Name"></span>
     </div>
+    <br />
     <div class="form-group; text-light">
         <label asp-for="Description"></label>
         <input asp-for="Description" />
         <span asp-validation-for="Description"></span>
     </div>
+    <br />
     <div class="form-group; text-light">
         <label asp-for="ContactEmail">Contact Email</label>
         <input asp-for="ContactEmail" />
     </div>
+    <br />
     <div class="form-group; text-light">
         <label asp-for="CategoryId">Category</label>
         <select asp-for="CategoryId" asp-items="Model.Categories"></select>
     </div>
-    <input type="submit" value="Add Event" />
+    <br />
+    <input type="submit" value="Submit" />
 </form>

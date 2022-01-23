@@ -16,32 +16,28 @@
 }
 else
 {
-    <table class="table; text-light">
+    <table class="table">
         <tr>
-            <th>
+            <th class="text-light">
                 Id
             </th>
-            <th>
+            <th class="text-light">
                 Name
             </th>
-            <th>
+            <th class="text-light">
                 Description
             </th>
-            @*<th>
-                Contact Email
-            </th>*@
-            <th>
+            <th class="text-light">
                 Category
             </th>
         </tr>
         @foreach (var evt in Model)
         {
             <tr>
-                <td>@evt.Id</td>
-                <td><a asp-controller="FitnessResources" asp-action="Detail" asp-route-id="@evt.Id">@evt.Name</a></td>
-                <td>@evt.Description</td>
-                @*<td>@evt.ContactEmail</td>*@
-                <td>@evt.Category.Name</td>
+                <td class="text-light">@evt.Id</td>
+                <td class="text-light"><a asp-controller="FitnessResources" asp-action="Detail" asp-route-id="@evt.Id">@evt.Name</a></td>
+                <td class="text-light">@evt.Description</td>
+                <td class="text-light">@evt.Category.Name</td>
             </tr>
         }
     </table>

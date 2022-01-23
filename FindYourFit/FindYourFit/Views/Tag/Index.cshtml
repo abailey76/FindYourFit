@@ -1,6 +1,6 @@
 ﻿@model List<FindYourFit.Models.Tag>
 <body style="background-color:darkslategrey"></body>
-<h1 class="text-light">All Event Tags</h1>
+<h1 class="text-light">All Tags</h1>
 
 <p>
     <a asp-controller="Tag" asp-action="Add">Add Tag</a>
@@ -12,16 +12,16 @@
 }
 else
 {
-    <table class="table; text-light">
+    <table class="table">
         <tr>
-            <th>Id
-            <th>Tag Name</th>
+            <th class="text-light">Id
+            <th class="text-light">Tag Name</th>
         </tr>
         @foreach (Tag tag in Model)
         {
             <tr>
-                <td>@tag.Id</td>
-                <td><a asp-controller="Tag" asp-action="Detail" asp-route-id="@tag.Id">@tag.Name</a></td>
+                <td class="text-light">@tag.Id</td>
+                <td class="text-light"><a asp-controller="Tag" asp-action="Detail" asp-route-id="@tag.Id">@tag.Name</a></td>
             </tr>
         }
     </table>

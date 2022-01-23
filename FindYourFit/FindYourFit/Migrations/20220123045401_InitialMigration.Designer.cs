@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FindYourFit.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220121181533_InitialMigration")]
+    [Migration("20220123045401_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

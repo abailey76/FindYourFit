@@ -3,12 +3,12 @@
 <h1 class="text-light">Events</h1>
 
 <p>
-    <a asp-controller="Events" asp-action="Add">Add Event</a>
+    <a style="color:lightskyblue" asp-controller="Events" asp-action="Add">Add Event</a>
 </p>
 
 
 <p>
-    <a asp-controller="Events" asp-action="Delete">Delete Event</a>
+    <a style="color:lightskyblue" asp-controller="Events" asp-action="Delete">Delete Event</a>
 </p>
 
 @if (Model.Count == 0)
@@ -17,32 +17,32 @@
 }
 else
 {
-    <table class="table; text-light">
+    <table class="table">
         <tr>
-            <th>
+            <th class="text-light">
                 Id
             </th>
-            <th>
+            <th class="text-light">
                 Name
             </th>
-            <th>
+            <th class="text-light">
                 Description
             </th>
-            <th>
+            <th class="text-light">
                 Contact Email
             </th>
-            <th>
+            <th class="text-light">
                 Category
             </th>
         </tr>
         @foreach (var evt in Model)
         {
             <tr>
-                <td>@evt.Id</td>
-                <td><a asp-controller="Events" asp-action="Detail" asp-route-id="@evt.Id">@evt.Name</a></td>
-                <td>@evt.Description</td>
-                <td>@evt.ContactEmail</td>
-                <td>@evt.Category.Name</td>
+                <td class="text-light">@evt.Id</td>
+                <td class="text-light"><a asp-controller="Events" asp-action="Detail" asp-route-id="@evt.Id">@evt.Name</a></td>
+                <td class="text-light">@evt.Description</td>
+                <td class="text-light">@evt.ContactEmail</td>
+                <td class="text-light">@evt.Category.Name</td>
             </tr>
         }
     </table>
