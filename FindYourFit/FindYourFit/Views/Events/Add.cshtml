@@ -1,7 +1,7 @@
 ﻿@model FindYourFit.ViewModels.AddEventViewModel;
 <body style="background-color:darkslategrey"></body>
 <h1 class="text-light">Add Event</h1>
-
+<h5 class="text-light">Add an upcoming event here for a physical meetup.</h5>
 <form asp-controller="Events" asp-action="Add" method="post">
     <div class="form-group">
         <label class="text-light" asp-for="Name"></label>
@@ -24,6 +24,5 @@
         <label asp-for="CategoryId">Category</label>
         <select asp-for="CategoryId" asp-items="Model.Categories"></select>
     </div>
-    <br />
     <input type="submit" value="Submit" />
 </form>
