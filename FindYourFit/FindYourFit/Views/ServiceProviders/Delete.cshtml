@@ -1,0 +1,16 @@
+﻿<h1 class="text-light">Delete Tag</h1>
+<body style="background-color:darkslategrey"></body>
+<form method="post">
+    @foreach (var evt in ViewBag.events)
+    {
+        <div class="form-group; text-light">
+            <label>
+                <span>@evt.Name</span>
+                <input type="checkbox" name="ServiceProviderIds" value="@evt.Id" class="form-control">
+            </label>
+        </div>
+    }
+
+    <input type="submit" value="Delete Selected Events" class="btn btn-danger">
+
+</form>

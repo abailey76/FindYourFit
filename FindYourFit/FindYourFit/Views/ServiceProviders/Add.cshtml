@@ -1,24 +1,30 @@
-﻿@model FindYourFit.ViewModels.AddFitnessResourceViewModel;
+﻿@model FindYourFit.ViewModels.AddServiceProviderViewModel;
 <body style="background-color:darkslategrey"></body>
-<h1 class="text-light">Add Fitness Resource</h1>
+<h1 class="text-light">Add Service Provider</h1>
 
-<form asp-controller="FitnessResources" asp-action="Add" method="post">
+<form asp-controller="ServiceProviders" asp-action="Add" method="post">
     <div class="form-group">
         <label class="text-light" asp-for="Name"></label>
         <input asp-for="Name" />
         <span class="text-light" asp-validation-for="Name"></span>
     </div>
     <br />
-    <div class="form-group">
+    <div class="form-group; text-light">
         <label class="text-light" asp-for="Description"></label>
         <input asp-for="Description" />
-        <span class="text-light" asp-validation-for="Description"></span>
+        <span asp-validation-for="Description"></span>
     </div>
     <br />
-    <div class="form-group">
+    <div class="form-group; text-light">
+        <label asp-for="ContactEmail">Contact Email</label>
+        <input asp-for="ContactEmail" />
+    </div>
+    <br />
+    <div class="form-group; text-light">
         <label class="text-light" asp-for="CategoryId">Category</label>
         <select asp-for="CategoryId" asp-items="Model.Categories"></select>
     </div>
     <br />
     <input type="submit" value="Submit" />
 </form>
+

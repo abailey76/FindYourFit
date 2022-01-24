@@ -15,6 +15,7 @@ namespace FindYourFit.Data
         public DbSet<AppRole> AppRoles { get; set; }
         public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<FitnessResource> FitnessResources { get; set; }
+        public DbSet<ServiceProvider> ServiceProviders { get; set; }
         public DbSet<EventCategory> EventCategories { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)

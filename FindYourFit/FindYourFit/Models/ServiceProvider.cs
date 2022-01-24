@@ -2,7 +2,7 @@
 
 namespace FindYourFit.Models
 {
-    public class FitnessResource
+    public class ServiceProvider
     {
         public string Name { get; set; }
 
@@ -17,18 +17,17 @@ namespace FindYourFit.Models
         public int Id { get; set; }
         public EventCategory EventCategory { get; internal set; }
 
-        public FitnessResource()
+        public ServiceProvider()
         {
 
         }
 
-        public FitnessResource(string name, string description)
+        public ServiceProvider(string name, string description, string contactemail)
         {
             Name = name;
             Description = description;
+            ContactEmail = contactemail;
         }
-
-
 
         public override string ToString()
         {
@@ -37,8 +36,8 @@ namespace FindYourFit.Models
 
         public override bool Equals(object obj)
         {
-            return obj is FitnessResource @fitnessresource &&
-                   Id == @fitnessresource.Id;
+            return obj is ServiceProvider @serviceprovider &&
+                   Id == @serviceprovider.Id;
         }
 
         public override int GetHashCode()

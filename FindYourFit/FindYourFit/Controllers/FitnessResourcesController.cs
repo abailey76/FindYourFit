@@ -35,8 +35,8 @@ namespace FindYourFit.Controllers
 
         public IActionResult Add()
         {
-            List<EventCategory> eventcategories = context.EventCategories.ToList();
-            AddFitnessResourceViewModel addFitnessResourceViewModel = new AddFitnessResourceViewModel(eventcategories);
+            List<EventCategory> categories = context.EventCategories.ToList();
+            AddFitnessResourceViewModel addFitnessResourceViewModel = new AddFitnessResourceViewModel(categories);
 
             return View(addFitnessResourceViewModel);
         }
