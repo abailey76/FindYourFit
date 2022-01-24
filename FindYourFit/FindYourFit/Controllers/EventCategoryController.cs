@@ -34,7 +34,7 @@ namespace FindYourFit.Controllers
         }
 
         [HttpPost]
-        public IActionResult ProcessCreateEventCategoryForm(AddEventCategoryViewModel addEventCategoryViewModel)
+        public IActionResult Add(AddEventCategoryViewModel addEventCategoryViewModel)
         {
             if (ModelState.IsValid)
             {

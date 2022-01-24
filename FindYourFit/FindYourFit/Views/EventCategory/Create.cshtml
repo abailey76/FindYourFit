@@ -3,11 +3,19 @@
 <h1 class="text-light">Add New Category</h1>
 <br />
 <form asp-controller="EventCategory" asp-action="Add" method="post">
-    <div class="form-group; text-light">
-        <label asp-for="Name"></label>
+
+    <div class="form-group">
+
+        <label class="text-light" asp-for="Name"></label>
+
         <input asp-for="Name" />
-        <span asp-validation-for="Name"></span>
+
+        <span class="text-light" asp-validation-for="Name"></span>
+
     </div>
+
     <br />
+
     <input type="submit" value="Submit" />
+
 </form>
