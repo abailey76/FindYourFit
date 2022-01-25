@@ -1,7 +1,9 @@
 ﻿@model FindYourFit.Models.Tag
 <body style="background-color:darkslategrey"></body>
 <h1 class="text-light">Add New Tag</h1>
+<h5 class="text-light">Create a new Tag. No # necessary when making a new tag (e.g., "Strongman", "stl", "funrun").</h5>
 <br />
+<hr />
 <form asp-controller="Tag" asp-action="Add" method="post">
     <div class="form-group">
         <label class="text-light" asp-for="Name"></label>

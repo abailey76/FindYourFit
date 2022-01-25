@@ -1,29 +1,37 @@
 ﻿@model FindYourFit.ViewModels.AddServiceProviderViewModel;
 <body style="background-color:darkslategrey"></body>
 <h1 class="text-light">Add Service Provider</h1>
-
+<h5 class="text-light">Create new listings for fitness service providers here. 
+<br />
+These can be a business (such as a gym) or an individual (such as a personal trainer or physical therapist).</h5>
+<br />
+<hr />
 <form asp-controller="ServiceProviders" asp-action="Add" method="post">
     <div class="form-group">
-        <label class="text-light" asp-for="Name"></label>
+        <label class="text-light" asp-for="Name">Provider Name: </label>
         <input asp-for="Name" />
         <span class="text-light" asp-validation-for="Name"></span>
     </div>
     <br />
+    <br />
     <div class="form-group; text-light">
-        <label class="text-light" asp-for="Description"></label>
+        <label class="text-light" asp-for="Description">Description: </label>
         <input asp-for="Description" />
         <span asp-validation-for="Description"></span>
     </div>
     <br />
+    <br />
     <div class="form-group; text-light">
-        <label asp-for="ContactEmail">Contact Email</label>
+        <label asp-for="ContactEmail">Contact Email: </label>
         <input asp-for="ContactEmail" />
     </div>
     <br />
+    <br />
     <div class="form-group; text-light">
-        <label class="text-light" asp-for="CategoryId">Category</label>
+        <label class="text-light" asp-for="CategoryId">Category: </label>
         <select asp-for="CategoryId" asp-items="Model.Categories"></select>
     </div>
+    <br />
     <br />
     <input type="submit" value="Submit" />
 </form>

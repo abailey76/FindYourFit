@@ -1,7 +1,9 @@
 ﻿@model FindYourFit.ViewModels.AddFitnessResourceViewModel;
 <body style="background-color:darkslategrey"></body>
 <h1 class="text-light">Add Fitness Resource</h1>
-
+<h5 class="text-light">Create a new fitness resource. These are specific useful items, such as a supplement or an implement.</h5>
+<br />
+<hr />
 <form asp-controller="FitnessResources" asp-action="Add" method="post">
     <div class="form-group">
         <label class="text-light" asp-for="Name"></label>
