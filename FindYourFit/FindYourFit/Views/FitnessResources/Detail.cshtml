@@ -2,24 +2,24 @@
 <body style="background-color:darkslategrey"></body>
 <h1 class="text-light">@Model.Name</h1>
 
-<table class="table; text-light">
+<table class="table">
     <tr>
-        <th>Description</th>
-        <td>@Model.Description</td>
+        <th class="text-light">Description</th>
+        <td class="text-light">@Model.Description</td>
     </tr>
-    <tr>
+    @*<tr>
         <th>Contact Email</th>
         <td>@Model.ContactEmail</td>
-    </tr>
+    </tr>*@
     <tr>
-        <th>Category</th>
-        <td>@Model.CategoryName</td>
+        <th class="text-light">Category</th>
+        <td class="text-light">@Model.CategoryName</td>
     </tr>
-    <tr>
+    @*<tr>
         <th>Tags</th>
         <td>@Model.TagText</td>
-    </tr>
+    </tr>*@
 
 </table>
 
-<a asp-controller="Tag" asp-action="AddFitnessResource" asp-route-id="@Model.FitnessResourceId">Add Tag</a>
+@*<a asp-controller="Tag" asp-action="Add" asp-route-id="@Model.FitnessResourceId">Add Tag</a>*@

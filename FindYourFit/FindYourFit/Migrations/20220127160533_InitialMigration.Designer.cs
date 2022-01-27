@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FindYourFit.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220124142719_Week2Migration")]
-    partial class Week2Migration
+    [Migration("20220127160533_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
